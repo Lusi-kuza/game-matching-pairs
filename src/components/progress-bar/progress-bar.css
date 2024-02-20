@@ -1,0 +1,15 @@
+.progress_bar {
+  width: 100px;
+  height: 30px;
+  border: 2px solid rgb(29 29 27);
+  border-radius: 20px;
+  box-shadow: inset 2px 2px 2px rgb(250 185 0),
+    inset -2px -2px 2px rgb(250 185 0), inset -2px 2px 2px rgb(250 185 0),
+    inset 2px -2px 2px rgb(250 185 0);
+  overflow: hidden;
+}
+.progress_bar_inner {
+  height: 100%;
+  width: 0;
+  background-color: rgb(250 185 0);
+}

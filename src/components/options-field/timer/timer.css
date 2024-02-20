@@ -1,0 +1,25 @@
+.time_area {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.timer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 30px;
+  margin-right: 25px;
+  border: 2px solid rgb(29 29 27);
+  border-radius: 45px;
+  box-shadow: inset 2px 2px 2px rgb(250 185 0),
+    inset -2px -2px 2px rgb(250 185 0), inset -2px 2px 2px rgb(250 185 0),
+    inset 2px -2px 2px rgb(250 185 0);
+  font-family: appetite, Arial, sans-serif;
+  color: rgb(250 185 0);
+  font-weight: 400;
+  font-size: 25px;
+  text-shadow: 2px 2px 2px rgb(29 29 27), -2px -2px 2px rgb(29 29 27),
+    -2px 2px 2px rgb(29 29 27), 2px -2px 2px rgb(29 29 27);
+}

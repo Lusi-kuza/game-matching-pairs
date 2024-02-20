@@ -1,5 +1,27 @@
+@font-face {
+  font-family: "Bubblez Graffiti";
+  src: url("./../../fonts/BubblezGraffiti.ttf");
+}
+
+@font-face {
+  font-family: "appetite";
+  src: url("./../../fonts/appetite.ttf");
+}
+
 .App {
   color: white;
   background-color: #282c34;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main_field {
+  width: 726px;
+  padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 }

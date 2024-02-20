@@ -3,22 +3,31 @@ import React, { useEffect } from "react";
 import "./App.css";
 import CardField from "../card-field/card-field";
 import { gameData, shuffleCard } from "../../utils/card-data";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { cardFieldSlice } from "../../services/cardField/slice";
+import OptionsField from "../options-field/options-field";
+import { currentGameSlice } from "../../services/gameStatus/slice";
 
-function App() {
+const App = () => {
   const dispatch = useDispatch();
-  const cardField = useSelector(
-    (store) => store.cardField.cardField.length > 0
-  );
 
-  const { actions } = cardFieldSlice;
+  const cardFieldActions = cardFieldSlice.actions;
+  const currentGameActions = currentGameSlice.actions;
 
   useEffect(() => {
-    dispatch(actions.createGame(shuffleCard(gameData)));
+    const initialData = shuffleCard(gameData);
+    dispatch(cardFieldActions.createGame(initialData));
+    dispatch(currentGameActions.setTotalSteps(initialData.length / 2));
   }, []);
 
-  return <div className="App">{cardField && <CardField />}</div>;
-}
+  return (
+    <div className="App">
+      <main className="main_field">
+        <OptionsField />
+        <CardField />
+      </main>
+    </div>
+  );
+};
 
 export default App;

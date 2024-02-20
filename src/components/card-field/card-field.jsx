@@ -3,13 +3,15 @@ import "./card-field.css";
 import Card from "../card/card";
 import { useDispatch, useSelector } from "react-redux";
 import { cardFieldSlice } from "../../services/cardField/slice";
+import { currentGameSlice } from "../../services/gameStatus/slice";
 
 const CardField = () => {
   const cardField = useSelector((store) => store.cardField.cardField);
   const matchingPair = useSelector((store) => store.cardField.matchingPair);
   const dispatch = useDispatch();
 
-  const { actions } = cardFieldSlice;
+  const cardFieldActions = cardFieldSlice.actions;
+  const currentGameActions = currentGameSlice.actions;
 
   // console.log(cardField);
   // console.log(matchingPair);
@@ -21,23 +23,23 @@ const CardField = () => {
       // console.log(matchingPair[0].value);
       // console.log(matchingPair[1].value);
       if (matchingPair[0].value === matchingPair[1].value) {
-        // console.log("reset");
+        // console.log("matching");
+        dispatch(currentGameActions.plusStep());
       } else {
         setTimeout(() => {
-          dispatch(actions.changeStatusCard(matchingPair[0].id));
-          dispatch(actions.changeStatusCard(matchingPair[1].id));
+          dispatch(cardFieldActions.changeStatusCard(matchingPair[0].id));
+          dispatch(cardFieldActions.changeStatusCard(matchingPair[1].id));
         }, 500);
       }
 
-      dispatch(actions.resetMatchingPair());
+      dispatch(cardFieldActions.resetMatchingPair());
     }
   }, [matchingPair]);
 
   return (
     <div className="card_field">
-      {cardField.map((el) => (
-        <Card key={el.id} card={el} />
-      ))}
+      {cardField.length > 0 &&
+        cardField.map((el) => <Card key={el.id} card={el} />)}
     </div>
   );
 };

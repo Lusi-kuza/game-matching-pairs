@@ -1,0 +1,11 @@
+.options_field {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.options_field_progress_area {
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+}

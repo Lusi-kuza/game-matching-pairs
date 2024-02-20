@@ -22,7 +22,6 @@ export const cardFieldSlice = createSlice({
       return state;
     },
     resetMatchingPair: (state) => {
-      // console.log("reducer");
       state.matchingPair = [];
     },
   },
